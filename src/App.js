@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import Navbar from "./components/navbar/Navbar";
+import Search from "./components/Search";
 
 const GlobalStyle = createGlobalStyle`
 *, *::after, *::before {
@@ -29,18 +30,31 @@ img, picture, svg, video {
 }
 `;
 
+const Container = styled.div`
+  max-width: 45.625rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+`;
+
 function App() {
   const [theme, setTheme] = useState("light");
-  const handleToggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const handleToggleTheme = () =>
+    setTheme(theme === "light" ? "dark" : "light");
 
   return (
     <>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyle />
         <header>
-          <Navbar onClick={handleToggleTheme} isLight={theme} />
+          <Container>
+            <Navbar onClick={handleToggleTheme} isLight={theme} />
+          </Container>
         </header>
-        <main></main>
+        <main>
+          <Container>
+            <Search />
+          </Container>
+        </main>
       </ThemeProvider>
     </>
   );
