@@ -12,10 +12,18 @@ const Span = styled.span`
   letter-spacing: 2.5px;
   color: ${(props) => props.theme.text};
   text-transform: uppercase;
+
+  ${Div}:hover & {
+    color: #222731;
+  }
 `;
 
 const SVG = styled.svg`
   fill: ${(props) => props.theme.text};
+
+  ${Div}:hover & {
+    fill: #222731;
+  }
 `;
 
 const NavbarMoon = () => {
