@@ -3,7 +3,7 @@ import NavbarMoon from "./NavbarMoon";
 import NavbarSun from "./NavbarSun";
 
 const Nav = styled.nav`
-  padding: 1.938rem 1.5rem 0;
+  padding-top: 1.938rem;
   margin-bottom: 2.25rem;
 `;
 
